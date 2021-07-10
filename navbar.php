@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #17A589;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #17A589;">
   <a class="navbar-brand" href="#" style="color:#ffffff;">General Hospital</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,11 +33,11 @@
           Patients
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Patient details</a>
+          <a class="dropdown-item" href="rud_patient.php">Patient details</a>
           <a class="dropdown-item" href="patients.php">Add new patient</a>
-          <a class="dropdown-item" href="patients.php">Update patient details</a>
+          <a class="dropdown-item" href="rud_patient.php">Update patient details</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Discharge Patient</a>
+          <a class="dropdown-item" href="rud_patient.php">Discharge/Delete Patient Details</a>
         </div>
       </li>
       <li class="nav-item dropdown">

@@ -20,7 +20,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <?php include('navbar.php');?>
 
-    <div class="col-md-3" style="height: 40px;">
+    <div class="col-md-3" style="height: 70px;">
     </div>
 <div class="container-fluid">
     <div class="row">

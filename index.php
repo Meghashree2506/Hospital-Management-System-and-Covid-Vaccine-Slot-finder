@@ -17,6 +17,12 @@
 
   </style>
   <body >
+    <?php 
+    if(isset($_SESSION)) 
+    { 
+        session_destroy(); 
+    } 
+    ?>
     <div class="container-fluid" style="margin-top:150px;margin-bottom:60px;color:#34495E;">
       <div class="row">   
       <div class="col-md-4"></div>

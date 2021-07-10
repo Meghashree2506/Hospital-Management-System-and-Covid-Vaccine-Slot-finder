@@ -1,6 +1,4 @@
-<?php
-include('navbar.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +17,10 @@ include('navbar.php');
     </style>
 </head>
 <body>
-<div class="col-md-3" style="height: 15px;">
+<?php
+include('navbar.php');
+?>
+<div class="col-md-3" style="height: 80px;">
     </div>
 <div class="container-fluid">
     <div class="row">
@@ -31,13 +32,16 @@ include('navbar.php');
     <div class="card-body" style="background-color: #17A589;color:#ffffff"><h3>Add new patient</h3></div>
     <div class="card-body">
     <form class="form-group" action="backend_actions.php" method="post">
-    First Name: <input type="text" name="pfname" class="form-control"><br>
-    Last Name: <input type="text" name="plname" class="form-control"><br>
-    Email: <input type="email" name="pemail" class="form-control"><br>
-    Contact: <input type="text" name="pcontact" class="form-control"><br>
-    Pincode: <input type="text" name="pincode"class="form-control"><br>
+    First Name: <input type="text" name="pfname" class="form-control" required><br>
+    Last Name: <input type="text" name="plname" class="form-control" required><br>
+    Email: <input type="email" name="pemail" class="form-control" required><br>
+    Contact: <input type="text" name="pcontact" class="form-control" required><br>
+    Blood Group: <input type="text" name="pBloodGroup"class="form-control" required><br>
+    Age: <input type="number" name="pAge"class="form-control" value="1" min=1 max=120 required ><br>
+    Gender: <br><select name="pGender" id=""><option value="Female">Female</option><option value="Male">Male</option><option value="Other">Other</option></select><br><br>
+    Pincode: <input type="text" name="pincode"class="form-control" required><br>
     Admit to:
-    <select name="" id="" class="form-control">
+    <select name="admitted_to" id="" class="form-control">
     <?php
     include('backend_actions.php');
     display_details();
