@@ -46,15 +46,9 @@ include('connection.php');
   <thead >
     <tr>
       <th scope="col">#id</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Contact Number</th>
-      <th scope="col">Pincode</th> 
-      <th scope="col">Blood Group</th> 
-      <th scope="col">Age</th> 
-      <th scope="col">Gender</th> 
-      <th scope="col">Admitted to</th> 
+      <th scope="col">Patient Name</th>
+      <th scope="col">Doctor id</th>
+      <th scope="col">Doctor Name</th>
       <th scope="col">Edit</th> 
       <th scope="col">Delete</th> 
 
@@ -67,7 +61,7 @@ include('connection.php');
   include('navbar.php');
   include('backend_actions.php');
   include('footer.php');
-  display_patients();
+  display_Assignedpatients();
 
   ?>
 

@@ -41,23 +41,16 @@ include('navbar.php');
 include('connection.php');
 ?>
 <div style="height: 50px;"></div>
-<h2 style="text-align: center; text-shadow: 2px 1px 3px #000000;" >Patient Details</h2><br>
+<h2 style="text-align: center; text-shadow: 2px 1px 3px #000000;" >Assign doctor</h2><br>
 <table class="table table-hover table-dark table-bordered table-sm table-responsive" style="background-color: #ABEBC6 ;">
   <thead >
     <tr>
       <th scope="col">#id</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Contact Number</th>
-      <th scope="col">Pincode</th> 
-      <th scope="col">Blood Group</th> 
-      <th scope="col">Age</th> 
-      <th scope="col">Gender</th> 
       <th scope="col">Admitted to</th> 
-      <th scope="col">Edit</th> 
-      <th scope="col">Delete</th> 
-
+      <th scope="col">Assign</th> 
+    
     </tr>
   </thead>
   <tbody>
@@ -67,7 +60,7 @@ include('connection.php');
   include('navbar.php');
   include('backend_actions.php');
   include('footer.php');
-  display_patients();
+  display_patients_assignment();
 
   ?>
 

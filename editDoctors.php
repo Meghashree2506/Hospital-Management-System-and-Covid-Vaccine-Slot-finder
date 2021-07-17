@@ -10,28 +10,27 @@ include "backend_actions.php";
 
 $id = $_GET['eid']; // get id through query string
 // echo 'id is '.$id;
-$qry = mysqli_query($con,"select * from patients where pid='$id'"); // select query
+$qry = mysqli_query($con,"select * from doctors where did='$id'"); // select query
 
 $data = mysqli_fetch_array($qry); // fetch data
 include("navbar.php");
 
-if(isset($_POST['update'])) // when click on Update button
+if(isset($_POST['update_doctors'])) // when click on Update button
 {
-    $pfname=$_POST['pfname'];
-	$plname=$_POST['plname'];
-	$pemail=$_POST['pemail'];
-	$pcontact=$_POST['pcontact'];
-	$pbloodGroup=$_POST['pBloodGroup'];
-	$pAge=$_POST['pAge'];
-	$pGender=$_POST['pGender'];
-	$pincode=$_POST['pincode'];
-	$admitted_to=$_POST['admitted_to'];
-    $cur_email=$data['pemail'];
-    $cur_contact=$data['pcontact'];
+    $dfname=$_POST['dfname'];
+	$dlname=$_POST['dlname'];
+	$demail=$_POST['demail'];
+	$dcontact=$_POST['dcontact'];
+	$dAge=$_POST['dAge'];
+	$dGender=$_POST['dGender'];
+	$dpincode=$_POST['dpincode'];
+	$speciality=$_POST['speciality'];
+    $cur_email=$data['demail'];
+    $cur_contact=$data['dcontact'];
 
-    $query="select * from patients where pemail='$pemail' and pemail <> '$cur_email'";
+    $query="select * from doctors where demail='$demail' and demail <> '$cur_email'";
 	$result=mysqli_query($con,$query);
-	$query1="select * from patients where pcontact='$pcontact' and pcontact <> '$cur_contact'";
+	$query1="select * from doctors where dcontact='$dcontact' and dcontact <> '$cur_contact'";
 	$result1=mysqli_query($con,$query1);
 
 
@@ -48,14 +47,14 @@ if(isset($_POST['update'])) // when click on Update button
 		// echo"<script>window.open('rud_patient.php','_self');</script>";
         echo"<script>if(alert('Contact already exists!!','_self')){window.location.reload();}</script>";
 	}
-	else if(!validate_mobile($pcontact))
+	else if(!validate_mobile($dcontact))
 	{
 		// echo"<script>alert('Invalid mobile number!!','_self');</script>";
 		// echo"<script>window.open('rud_patient.php','_self');</script>";
         echo"<script>if(alert('Invalid mobile number!!','_self')){window.location.reload();}</script>";
 
 	}
-    else if (!filter_var($pemail, FILTER_VALIDATE_EMAIL)) {
+    else if (!filter_var($demail, FILTER_VALIDATE_EMAIL)) {
 		// echo"<script>alert('Invalid mail id!!','_self');</script>";
 		// echo"<script>window.open('rud_patient.php','_self');</script>";
         echo"<script>if(alert('Invalid mail id!!','_self')){window.location.reload();}</script>";
@@ -64,13 +63,13 @@ if(isset($_POST['update'])) // when click on Update button
     
     else{
 
-    $edit = mysqli_query($con,"update patients set pfname='$pfname',plname='$plname', pemail='$pemail', pcontact='$pcontact',pBloodGroup='$pbloodGroup',pAge1=$pAge, pGender='$pGender',pincode='$pincode',admitted_to='$admitted_to' where pid='$id'");
+    $edit = mysqli_query($con,"update doctors set dfname='$dfname',dlname='$dlname', demail='$demail', dcontact='$dcontact',dAge=$dAge, dGender='dGender',dpincode='$dpincode',speciality='$speciality' where did='$id'");
 	
     if($edit)
     {
  // Close connection
-        echo"<script>alert('Patient details updated successfully!!','_self');</script>";
-        echo"<script>window.open('rud_patient.php','_self');</script>";
+        echo"<script>alert('doctor details updated successfully!!','_self');</script>";
+        echo"<script>window.open('rud_doctors.php','_self');</script>";
         exit;
     }
     else
@@ -126,24 +125,24 @@ if(!isset($_SESSION['username']))
     <div class="card-body" style="background-color: #17A589;color:#ffffff"><h3>Edit Patient Details </h3></div>
     <div class="card-body">
     <form class="form-group"  method="post">
-    First Name: <input type="text" name="pfname" class="form-control" value="<?php echo $data['pfname'] ?>"required><br>
-    Last Name: <input type="text" name="plname" class="form-control" value="<?php echo $data['plname'] ?>" required><br>
-    Email: <input type="email" name="pemail" class="form-control" value="<?php echo $data['pemail'] ?>" required><br>
-    Contact: <input type="text" name="pcontact" class="form-control" value="<?php echo $data['pcontact'] ?>" required><br>
-    Blood Group: <input type="text" name="pBloodGroup"class="form-control" value="<?php echo $data['pBloodGroup'] ?>" required><br>
+    First Name: <input type="text" name="dfname" class="form-control" value="<?php echo $data['dfname'] ?>"required><br>
+    Last Name: <input type="text" name="dlname" class="form-control" value="<?php echo $data['dlname'] ?>" required><br>
+    Email: <input type="email" name="demail" class="form-control" value="<?php echo $data['demail'] ?>" required><br>
+    Contact: <input type="text" name="dcontact" class="form-control" value="<?php echo $data['dcontact'] ?>" required><br>
+    
 
-    Age: <input type="number" name="pAge"class="form-control" value="<?php echo $data['pAge1'] ?>" min=1 max=120 required ><br>
-    Gender: <br><select name="pGender" id=""><option value="<?php echo $data['pGender'] ?>">Female</option><option value="Male">Male</option><option value="Other">Other</option></select><br><br>
-    Pincode: <input type="text" name="pincode"class="form-control" value="<?php echo $data['pincode'] ?>" required><br>
+    Age: <input type="number" name="dAge"class="form-control" value="<?php echo $data['dAge'] ?>" min=1 max=120 required ><br>
+    Gender: <br><select name="dGender" id=""><option value="<?php echo $data['dGender'] ?>">Female</option><option value="Male">Male</option><option value="Other">Other</option></select><br><br>
+    Pincode: <input type="text" name="dpincode"class="form-control" value="<?php echo $data['dpincode'] ?>" required><br>
     Admit to:
-    <select name="admitted_to" id="" class="form-control value="<?php echo $data['admitted_to'] ?>">
+    <select name="speciality" id="" class="form-control value="<?php echo $data['speciality'] ?>">
     <?php
     // include('backend_actions.php');
     display_details();
     ?>
     
     </select><br><br>
-    <input type="submit" class="btn btn" style="background-color: #48C9B0;" name="update" value="Update"> 
+    <input type="submit" class="btn btn" style="background-color: #48C9B0;" name="update_doctors" value="Update"> 
   
     </form>
     </div>

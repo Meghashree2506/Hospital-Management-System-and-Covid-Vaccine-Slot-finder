@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,15 +15,19 @@
         background-size: cover;
         background-color:	#1F618D ;
     }
+      .card {
+      box-shadow: 0 15px 15px 5px ;
+      transition: 0.3s;
+      /* width: 40%; */
+    }
+
+  .card:hover {
+      box-shadow: 0 15px 16px 8px ;
+   }
 
   </style>
   <body >
-    <?php 
-    if(isset($_SESSION)) 
-    { 
-        session_destroy(); 
-    } 
-    ?>
+  
     <div class="container-fluid" style="margin-top:150px;margin-bottom:60px;color:#34495E;">
       <div class="row">   
       <div class="col-md-4"></div>

@@ -1,3 +1,14 @@
+<?php
+if(!isset($_SESSION))
+{
+session_start();
+}
+if(!isset($_SESSION['username']))
+{
+    header("location: index.php");
+    
+}else{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +25,24 @@
     .list-group-item{
       color: black;
     }
-   
+    .card {
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+      transition: 0.3s;
+      /* width: 40%; */
+    }
+
+  .card:hover {
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+   }
     </style>
 </head>
 <body>   
 <?php
-include('navbar.php');
+
+
 include('connection.php');
+include('navbar.php');
+include('footer.php');
 if(isset($_POST['find_vaccines']))
 {
 	$pincode=$_POST['vpincode'];
@@ -70,7 +92,7 @@ if ($result->num_rows > 0) {
               <div class='col-md-3'></div>
               <div class='col-md-6'>
               <div class='card'>
-              <div class='card-body' style='background-color: #48C9B0;color:#FDFEFE '>";
+              <div class='card-body' style='background-color: #ABEBC6;color:black '>";
        
             foreach($infos as $key => $val){
                 echo"<h3>";
@@ -129,3 +151,4 @@ if ($result->num_rows > 0) {
 
 </body>
 </html>
+<?php } ?>

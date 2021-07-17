@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION))
+{
+  session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +42,8 @@
           <a class="dropdown-item" href="rud_patient.php">Patient details</a>
           <a class="dropdown-item" href="patients.php">Add new patient</a>
           <a class="dropdown-item" href="rud_patient.php">Update patient details</a>
+          <a class="dropdown-item" href="assign_doctors.php">Assign doctor</a>
+          <a class="dropdown-item" href="rud_assignment.php">Assigned Patients</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="rud_patient.php">Discharge/Delete Patient Details</a>
         </div>
@@ -45,15 +53,15 @@
           Staff
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Staff details</a>
-          <a class="dropdown-item" href="#">Add new staff</a>
+          <a class="dropdown-item" href="rud_doctors.php">Staff details</a>
+          <a class="dropdown-item" href="doctors.php">Add new staff</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Remove staff</a>
+          <a class="dropdown-item" href="rud_doctors.php">Remove staff</a>
         </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="index.php">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #ffffff; background-color:#48C9B0;">Signout</button>
+    <form class="form-inline my-2 my-lg-0" action="backend_actions.php" method="post">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #ffffff; background-color:#48C9B0;" name="logout">Signout</button>
     </form>
   </div>
 </nav>

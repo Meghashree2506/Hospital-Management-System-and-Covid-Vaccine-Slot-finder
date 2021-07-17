@@ -1,4 +1,14 @@
-
+<?php
+if(!isset($_SESSION))
+{
+session_start();
+}
+if(!isset($_SESSION['username']))
+{
+    header("location: index.php");
+    
+}else{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +24,22 @@
     .list-group-item{
       color: black;
     }
+    .card {
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+      transition: 0.3s;
+      /* width: 40%; */
+    }
+
+  .card:hover {
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+   }
     </style>
 </head>
 <body>
 <?php
+include('connection.php');
 include('navbar.php');
+include('footer.php');
 ?>
 <div class="col-md-3" style="height: 80px;">
     </div>
@@ -66,3 +87,4 @@ include('navbar.php');
     <!--Sweet alert js-->
 </body>
 </html>
+<?php } ?>
