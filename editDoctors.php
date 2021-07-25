@@ -63,7 +63,7 @@ if(isset($_POST['update_doctors'])) // when click on Update button
     
     else{
 
-    $edit = mysqli_query($con,"update doctors set dfname='$dfname',dlname='$dlname', demail='$demail', dcontact='$dcontact',dAge=$dAge, dGender='dGender',dpincode='$dpincode',speciality='$speciality' where did='$id'");
+    $edit = mysqli_query($con,"update doctors set dfname='$dfname',dlname='$dlname', demail='$demail', dcontact='$dcontact',dAge=$dAge, dGender='$dGender',dpincode='$dpincode',speciality='$speciality' where did='$id'");
 	
     if($edit)
     {
@@ -110,6 +110,11 @@ if(!isset($_SESSION['username']))
   .card:hover {
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
    }
+   body{
+
+background-size: cover;
+background-image: url('images/greenbg.png') ;
+}
     </style>
 </head>
 <body>
@@ -132,7 +137,7 @@ if(!isset($_SESSION['username']))
     
 
     Age: <input type="number" name="dAge"class="form-control" value="<?php echo $data['dAge'] ?>" min=1 max=120 required ><br>
-    Gender: <br><select name="dGender" id=""><option value="<?php echo $data['dGender'] ?>">Female</option><option value="Male">Male</option><option value="Other">Other</option></select><br><br>
+    Gender: <br><select name="dGender" id=""><option value="<?php echo $data['dGender'] ?>"><?php echo $data['dGender'] ?></option><option value="Female">Female</option><option value="Male">Male</option><option value="Other">Other</option></select><br><br>
     Pincode: <input type="text" name="dpincode"class="form-control" value="<?php echo $data['dpincode'] ?>" required><br>
     Admit to:
     <select name="speciality" id="" class="form-control value="<?php echo $data['speciality'] ?>">

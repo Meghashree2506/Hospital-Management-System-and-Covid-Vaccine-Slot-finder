@@ -13,7 +13,8 @@
     body{
 
         background-size: cover;
-        background-color:	#1F618D ;
+        /* background-color:	#1F618D ; */
+        background-image: url('images/greenbg.png');
     }
       .card {
       box-shadow: 0 15px 15px 5px ;

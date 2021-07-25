@@ -52,26 +52,26 @@ if(isset($_POST['patientDetails_submit']))
 	
 	if(mysqli_num_rows($result)>0)
 	{
-		// echo"<script>alert('mail id already exists!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('mail id already exists!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('mail id already exists!!','_self');</script>";
+		echo"<script>window.open('patients.php','_self');</script>";
+		// echo"<script>if(alert('mail id already exists!!','_self')){window.location.reload();}</script>";
 	}
 	else if(mysqli_num_rows($result1)>0)
 	{
-		// echo"<script>alert('contact already exists!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('Contact already exists!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('contact already exists!!','_self');</script>";
+		echo"<script>window.open('patients.php','_self');</script>";
+		// echo"<script>if(alert('Contact already exists!!','_self')){window.location.reload();}</script>";
 	}
 	else if(!validate_mobile($pcontact))
 	{
-		// echo"<script>alert('Invalid mobile number!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('Invalid mobile number!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('Invalid mobile number!!','_self');</script>";
+		echo"<script>window.open('patients.php','_self');</script>";
+		// echo"<script>if(alert('Invalid mobile number!!','_self')){window.location.reload();}</script>";
 	}
 	else if (!filter_var($pemail, FILTER_VALIDATE_EMAIL)) {
-		// echo"<script>alert('Invalid mail id!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('Invalid mail id!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('Invalid mail id!!','_self');</script>";
+		echo"<script>window.open('patients.php','_self');</script>";
+		// echo"<script>if(alert('Invalid mail id!!','_self')){window.location.reload();}</script>";
 	}
 	else{
 	
@@ -105,26 +105,27 @@ if(isset($_POST['doctorDetails_submit']))
 	
 	if(mysqli_num_rows($result)>0)
 	{
-		// echo"<script>alert('mail id already exists!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('mail id already exists!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('mail id already exists!!','_self');</script>";
+		echo"<script>window.open('doctors.php','_self');</script>";
+		// echo"<script>if(alert('mail id already exists!!','_self')){window.location.reload();}</script>";
 	}
 	else if(mysqli_num_rows($result1)>0)
 	{
-		// echo"<script>alert('contact already exists!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('Contact already exists!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('contact already exists!!','_self');</script>";
+		echo"<script>window.open('doctors.php','_self');</script>";
+		// echo"<script>if(alert('Contact already exists!!','_self')){window.location.reload();}</script>";
 	}
 	else if(!validate_mobile($dcontact))
 	{
-		// echo"<script>alert('Invalid mobile number!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('Invalid mobile number!!','_self')){window.location.reload();}</script>";
+		// echo"<script>window.location.reload();</script>";
+		echo"<script>alert('Invalid mobile number!!','_self');</script>";
+		echo"<script>window.open('doctors.php','_self');</script>";
+		// echo"<script>if(alert('Invalid mobile number!!','_self')){window.location.reload();}</script>";
 	}
 	else if (!filter_var($demail, FILTER_VALIDATE_EMAIL)) {
-		// echo"<script>alert('Invalid mail id!!','_self');</script>";
-		// echo"<script>window.open('patients.php','_self');</script>";
-		echo"<script>if(alert('Invalid mail id!!','_self')){window.location.reload();}</script>";
+		echo"<script>alert('Invalid mail id!!','_self');</script>";
+		echo"<script>window.open('doctors.php','_self');</script>";
+		// echo"<script>if(alert('Invalid mail id!!','_self')){window.location.reload();}</script>";
 	}
 	else{
 	
@@ -246,6 +247,89 @@ function display_AssignedPatients()
 		echo'</tr>';
 	}
 }
+
+function searchPatients()
+{
+	global $con;
+	if(isset($_GET['search_pat'])){
+		$search_query=htmlentities($_GET['search_query']);
+		$get_user="SELECT * FROM patients WHERE pfname like '%$search_query%'";
+	}else{
+		$get_user="SELECT  * FROM patients order by pid DESC LIMIT 5";
+	}
+
+	$run_user=mysqli_query($con,$get_user);
+	
+	echo"<div style='height:50px'></div>";
+	
+	while($row_user=mysqli_fetch_array($run_user)){
+		$patient_fname=$row_user['pfname'];
+		$patient_lname=$row_user['plname'];
+		$pcontact=$row_user['pcontact'];
+		$pemail=$row_user['pemail'];
+		$page=$row_user['pAge1'];
+		$bg=$row_user['pBloodGroup'];
+	
+
+		//now dislaying all at once
+		
+		echo "
+		
+		<div class='center row'>
+		<div class='col-md-4'></div>
+		<div class='card col-md-4'><img src='images/patient_avatar.png' style='height: 150px;width: 150px;'>
+		<h1>Name: $patient_fname $patient_lname</h1>
+		<p class='title'>Contact: $pcontact</p>
+		<p>Email: $pemail</p>
+		<p>Age: $page</p>
+		<p>Blood Group: $bg</p>
+		
+		</div></div><br><br>
+		";
+		
+	}
+}
+function searchDoctors()
+{
+	global $con;
+	if(isset($_GET['search_pat'])){
+		$search_query=htmlentities($_GET['search_query']);
+		$get_user="SELECT * FROM doctors WHERE dfname like '%$search_query%'";
+		
+	}else{
+		$get_user="SELECT  * FROM doctors order by did DESC LIMIT 5";
+	}
+
+	$run_user=mysqli_query($con,$get_user);
+	echo"<div style='height:50px'></div>";
+	
+	while($row_user=mysqli_fetch_array($run_user)){
+		$patient_fname=$row_user['dfname'];
+		$patient_lname=$row_user['dlname'];
+		$pcontact=$row_user['dcontact'];
+		$pemail=$row_user['demail'];
+		$page=$row_user['dAge'];
+	
+	
+
+		//now dislaying all at once
+		
+		echo "
+		
+		<div class='center row'>
+		<div class='col-md-4'></div>
+		<div class='card col-md-4'><img src='images/doc_avatar.jpg' style='height: 150px;width: 150px;'>
+		<h1>Name: $patient_fname $patient_lname</h1>
+		<p class='title'>Contact: $pcontact</p>
+		<p>Email: $pemail</p>
+		<p>Age: $page</p>
+		</div></div><br><br>
+		";
+		
+	}
+}
+
+
 
 
 

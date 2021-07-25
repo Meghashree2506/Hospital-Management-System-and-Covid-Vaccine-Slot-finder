@@ -33,6 +33,11 @@ if(!isset($_SESSION['username']))
   .table:hover {
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
    }
+   body{
+
+background-size: cover;
+background-image: url('images/greenbg.png') ;
+}
     </style>
 </head>
 <body>
@@ -41,7 +46,7 @@ include('navbar.php');
 include('connection.php');
 ?>
 <div style="height: 50px;"></div>
-<h2 style="text-align: center; text-shadow: 2px 1px 3px #000000;" >Patient Details</h2><br>
+<h2 style="text-align: center; text-shadow: 2px 1px 3px #000000;" >Assigned Patients</h2><br>
 <table class="table table-hover table-dark table-bordered table-sm table-responsive" style="background-color: #ABEBC6 ;">
   <thead >
     <tr>

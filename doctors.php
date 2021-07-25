@@ -32,6 +32,11 @@ if (!isset($_SESSION['username'])) {
       .card:hover {
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
       }
+      body{
+
+background-size: cover;
+background-image: url('images/greenbg.png') ;
+}
     </style>
   </head>
 

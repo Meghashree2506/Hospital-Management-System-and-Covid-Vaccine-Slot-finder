@@ -42,6 +42,7 @@ if(!isset($_SESSION))
           <a class="dropdown-item" href="rud_patient.php">Patient details</a>
           <a class="dropdown-item" href="patients.php">Add new patient</a>
           <a class="dropdown-item" href="rud_patient.php">Update patient details</a>
+          <a class="dropdown-item" href="search_patients.php">Search Patients</a>
           <a class="dropdown-item" href="assign_doctors.php">Assign doctor</a>
           <a class="dropdown-item" href="rud_assignment.php">Assigned Patients</a>
           <div class="dropdown-divider"></div>
@@ -50,11 +51,12 @@ if(!isset($_SESSION))
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
-          Staff
+          Doctors
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="rud_doctors.php">Staff details</a>
-          <a class="dropdown-item" href="doctors.php">Add new staff</a>
+          <a class="dropdown-item" href="rud_doctors.php">Doctor details</a>
+          <a class="dropdown-item" href="doctors.php">Add new doctor</a>
+          <a class="dropdown-item" href="search_doctors.php">Search doctors</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="rud_doctors.php">Remove staff</a>
         </div>
