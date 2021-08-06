@@ -56,10 +56,10 @@ background-image: url('images/greenbg.png') ;
                 <div class="col-md-6">
                     <div class="card" style="background-color: #d9ecd0;">
                         <div class="card-body" style="background-color: #17A589;color:#ffffff">
-                            <h3>Seach Doctors</h3><br>
+                            <h3>Search Doctors</h3><br>
                            
                         <form action="" class="search_form">
-                            <input type="text" name="search_query" placeholder="Enter the doctor name" autocomplete="off" required>
+                            <input type="text" name="search_query" placeholder="Enter the doctor's name" autocomplete="off" required>
                             <button class="btn-small" type="submit" name="search_pat">Search</button>
                         </form>
                         

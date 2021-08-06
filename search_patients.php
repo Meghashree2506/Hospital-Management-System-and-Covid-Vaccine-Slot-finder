@@ -57,7 +57,7 @@ background-image: url('images/greenbg.png') ;
                 <div class="col-md-6">
                     <div class="card" style="background-color: #d9ecd0;">
                         <div class="card-body" style="background-color: #17A589;color:#ffffff">
-                            <h3>Seach Patients</h3><br>
+                            <h3>Search Patients</h3><br>
                            
                         <form action="" class="search_form">
                             <input type="text" name="search_query" placeholder="Enter the patient name" autocomplete="off" required>

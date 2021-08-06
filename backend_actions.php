@@ -233,7 +233,7 @@ function display_AssignedPatients()
 {
 	
 	global $con;
-	$query2="select pid,pfname,plname,did,dfname,dlname,speciality from doctor_patient natural join patients natural join doctors";
+	$query2="select pid,pfname,plname,did,dfname,dlname,admitted_to from doctor_patient natural join patients natural join doctors";
 	$results = mysqli_query($con,$query2);
 	while ($row1 = mysqli_fetch_array($results)) {
 		echo'<tr>';
@@ -241,8 +241,8 @@ function display_AssignedPatients()
 		echo '<td>'.$row1["pfname"].' '.$row1["plname"].'</td>';
 		echo '<td>'.$row1["did"].'</td>';
 		echo '<td>'.$row1["dfname"].' '.$row1["dlname"].'</td>';
-		echo'<td><a href="assignDoctors_edit.php?eid='.$row1['pid'].'&did='.$row1['did'].'&spl='.$row1['speciality'].'" style="color:#0E6655">Edit</a></td>';
-		echo'<td><a href="assignDoctors_delete.php?eid='.$row1['pid'].'&did='.$row1['did'].'&spl='.$row1['speciality'].'" style="color:#0E6655">Delete</a></td>';
+		echo'<td><a href="assignDoctors_edit.php?eid='.$row1['pid'].'&did='.$row1['did'].'&spl='.$row1['admitted_to'].'" style="color:#0E6655">Edit</a></td>';
+		echo'<td><a href="assignDoctors_delete.php?eid='.$row1['pid'].'&did='.$row1['did'].'&spl='.$row1['admitted_to'].'" style="color:#0E6655">Delete</a></td>';
     
 		echo'</tr>';
 	}

@@ -127,7 +127,7 @@ background-image: url('images/greenbg.png') ;
     <div class="col-md-3"></div>
     <div class="col-md-5">
     <div class="card">
-    <div class="card-body" style="background-color: #17A589;color:#ffffff"><h3>Edit Patient Details </h3></div>
+    <div class="card-body" style="background-color: #17A589;color:#ffffff"><h3>Edit Doctor Details </h3></div>
     <div class="card-body">
     <form class="form-group"  method="post">
     First Name: <input type="text" name="dfname" class="form-control" value="<?php echo $data['dfname'] ?>"required><br>
